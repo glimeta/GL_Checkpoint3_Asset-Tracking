@@ -1,13 +1,17 @@
-﻿Console.WriteLine("GL_Checkpoint3_Asset Tracking");
+﻿using GL_Checkpoint3_Asset_Tracking;
+
+Console.WriteLine("GL_Checkpoint3_Asset Tracking");
 Console.WriteLine("Follow instuctions to enter new product. Press 'Q' to quit.");
 
 DateTime dt1 = new DateTime();
 dt1 = DateTime.Now;
-List<Attribute> Products = new List<Attribute>();
+List<Asset> Products = new List<Asset>();
 
 while (true)
 
-{
+{ 
+
+ {
     while (true)
     {
         Console.ForegroundColor = ConsoleColor.White;
@@ -29,75 +33,33 @@ while (true)
         {
             Console.WriteLine("Enter a Product Brand");
             InputBrand = Console.ReadLine();
-             if (InputBrand.Trim().ToLower() == "q")
-              {
-                 break;
-              }
+            if (InputBrand.Trim().ToLower() == "q")
+            {
+                break;
+            }
 
-              if (String.IsNullOrEmpty(InputBrand))
-              {
+            if (String.IsNullOrEmpty(InputBrand))
+            {
                 Console.WriteLine("Incorrect Entry. Data missing");
-              }
+            }
 
-              else                               //break commnand to make program continue if conditions are not met, to next step product model 
-                {
-                   break;
-                }
+            else                               //break commnand to make program continue if conditions are not met, to next step product model 
+            {
+                break;
+            }
         }
 
         string InputModel;
         while (true)
-        {     
+        {
             Console.WriteLine("Enter a Product Model");
             InputModel = Console.ReadLine();
-              if (InputModel.Trim().ToLower() == "q")
-              {
-                 break;
-              }
-
-              if (String.IsNullOrEmpty(InputModel))
-              {
-                 Console.WriteLine("Incorrect Entry. Data missing");
-              }
-
-              else                               
-              {
-                 break;
-              }
-        }
-
-        string InputOffice;
-        while (true)
-        {
-            Console.WriteLine("Enter a Product Model");
-            InputOffice = Console.ReadLine();
-            if (InputOffice.Trim().ToLower() == "q")
+            if (InputModel.Trim().ToLower() == "q")
             {
                 break;
             }
 
-            if (String.IsNullOrEmpty(InputOffice))
-            {
-                Console.WriteLine("Incorrect Entry. Data missing");
-            }
-
-            else
-            {
-                break;
-            }
-        }
-
-        string InputCurrency;
-        while (true)
-        {
-            Console.WriteLine("Enter a Product Model");
-            InputCurrency = Console.ReadLine();
-            if (InputCurrency.Trim().ToLower() == "q")
-            {
-                break;
-            }
-
-            if (String.IsNullOrEmpty(InputCurrency))
+            if (String.IsNullOrEmpty(InputModel))
             {
                 Console.WriteLine("Incorrect Entry. Data missing");
             }
@@ -109,12 +71,56 @@ while (true)
         }
 
 
-        string InputPrice;       
+       DateTime InputDate();
+        while (true)
+         {
+            Console.WriteLine("Enter Purchase Date in yyyy-MM-dd format ");
+            PurchaseDate = Console.ReadLine();
+            if (PurchaseDate == "q")
+            {
+                break;
+            //}
+
+            //if (DateTime.IsNullOrEmpty(PurchaseDate))
+            //{
+            //    Console.WriteLine("Incorrect Entry. Data missing");
+                continue;
+            }
+
+            //static DateTimeParse (string InputDate);
+
+            
+          }
+            
+        
+       // string InputOffice;
+            while (true)           
+              {
+                Console.WriteLine("Enter a Office Location. (USA / Sweden / other EU Country) ");
+                Office = Console.ReadLine();
+                if (Office.Trim().ToLower() == "q")
+                {
+                    break;
+                }
+
+                if (String.IsNullOrEmpty(Office))
+                {
+                    Console.WriteLine("Incorrect Entry. Data missing");
+                }
+
+                else
+                {
+                    break;
+                }
+              }
+
+        string InputPrice;
         int value = 0;
         while (true)
         {
-            Console.WriteLine("Enter a Price in USD");      
-            if (dataPrice.Trim().ToLower() == "q")
+            Console.WriteLine("Enter a Price in USD");
+            InputPrice = Console.ReadLine;
+            if (InputPrice.Trim().ToLower() == "q")
             {
                 break;
             }
@@ -128,99 +134,146 @@ while (true)
 
             bool Number = int.TryParse(InputPrice, out value);
             if (!Number)
-            {                                                                 
+            {
                 Console.WriteLine("Incorrect price! Input must be a number");
             }
             else
             {
                 break;
             }
+        }
 
-
-            DateTime InputPurchaseDate;
-            int value = 0;
-            while (true)
-            {
-                Console.WriteLine("Enter Purchase Date in yyyy-MM-dd format ");
-                InputPurchaseDate = Console.ReadLine();
-
-                if (InputPurchaseDate.Trim().ToLower() == "q")
-                {
-                    break;
-                }
-
-                if (DateTime.IsNullOrEmpty(InputPurchaseDate))
-                {
-                    Console.WriteLine("Incorrect Entry. Data missing");
-                    continue;
-
-                }
-
-            }
-
-        if (InputBrand.Trim().ToLower() == "q")
+        string InputLocalCurrency;
+        while (true)
           {
-            break;
+            Console.WriteLine("Enter Currency. (US Dollar / SEK / EURO");
+            InputLocalCurrency = Console.ReadLine();
+            if (InputLocalCurrency.Trim().ToLower() == "q")
+            {
+                break;
+            }
+
+            if (String.IsNullOrEmpty(InputLocalCurrency))
+            {
+                Console.WriteLine("Incorrect Entry. Data missing");
+            }
+
+            else
+            {
+                break;
+            }
           }
 
-        if (InputModel.Trim().ToLower() == "q")
-          { 
-            break;
+        
+        if (InputBrand.Trim().ToLower() == "q")
+            {
+                break;
+            }
+
+            if (InputModel.Trim().ToLower() == "q")
+            {
+                break;
+            }
+
+            if (InputOffice.Trim().ToLower() == "q")
+            {
+                break;
+            }
+
+            if (InputLocalCurrency.Trim().ToLower() == "q")
+            {
+                break;
+            }
+
+            if (InputDate == "q")
+            {
+                break;
+            }
+
+            if (InputPrice.Trim().ToLower() == "q")
+            {
+                break;
+            }
+
+        //static DateTime GetDate(Inputdate)
+        //{
+        //    return DateTime.ParseExact(date, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+        //}
+
+        double ExchangeRate = new ExchangeRate();
+        if (InputLocalCurrency == "EURO")
+          {
+            ExchangeRate = InputPrice * 1.12;
+
           }
+        
+        if (InputLocalCurrency == "SEK")
+          {
+            ExchangeRate = InputPrice * 0.12;
 
-        if (InputOffice.Trim().ToLower() == "q")
-            {
-                break;
-            }
-
-        if (InputCurrency.Trim().ToLower() == "q")
-            {
-                break;
-            }
-
-        if (InputPurchaseDate.Trim().ToLower() == "q")
-            {
-                break;
-            }
-
-        if (InputPrice.Trim().ToLower() == "q")
-            {
-                break;
-            }
+          }
+          
+          else
+          {
+            ExchangeRate = InputPrice * 1.00;
+          }
 
 
         Console.WriteLine("Correct Entry!");
-       // Attribute item = new Attribute(InputType, InputBrand, value);
-        Products.Add(item);
+        Asset assets = new Asset(InputType, InputBrand, InputModel, office, value, InputCurrency, ExchangeRate, GetDate);
+        Products.Add(assets);
+        
     }
 
-    Console.WriteLine("-----------");
-    Console.WriteLine("you have entered following products ");
+    int daysWarning = 913; //Approx 30 months
+    int daysAlarm = 1004;  //Approx 33 months
+    TimeSpan diff = DateTime.Now - purchaseDate;
+    DecideForegroundColor(daysWarning, daysAlarm, diff);
 
-        static void PrintHeader()
+    static void DecideForegroundColor(int daysWarning, int daysAlarm, TimeSpan diff)
+      {
+        if (diff.Days > daysAlarm)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+        else if (diff.Days > daysWarning)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+      }
+
+
+
+
+    List<Asset> SortedAssetsByTypeAndDate = Products.OrderBy(assets => assets.Type).ThenBy(assets => assets.PurchaseDate).ToList(); 
+            
+    Console.WriteLine("Type".PadRight(20) + "Brand".PadRight(20) + "Model".PadRight(20) + "Office".PadRight(20) + 
+        "Price in USD".PadRight(20) + "Currency".PadRight(20) + "Exchange Rate".PadRight(20) + "Purchase Date");
+        
     Console.WriteLine(
-        Tab("Type") +
-        Tab("Brand") +
-        Tab("Model") +
-        Tab("Office") +
-        Tab("Purchase Date") +
-        Tab("Price in USD") +
-        Tab("Currency") +
-        Tab("Local price today")
-        );
-        Console.WriteLine(
-            Tab("----") +
-            Tab("-----") +
-            Tab("-----") +
-            Tab("------") +
-            Tab("-------------") +
-            Tab("------------") +
-            Tab("--------") +
-            Tab("-----------------")
-            );
+            "----".PadRight(20) +
+            "-----".PadRight(20) +
+            "-----".PadRight(20) +
+            "------".PadRight(20) +
+            "-------------".PadRight(20) +
+            "------------".PadRight(20) +
+            "--------".PadRight(20) +
+            "-----------------");
 
+    foreach (Asset assets in SortedAssetsByTypeAndDate)
+    {
+        Console.WriteLine(assets.Type.PadRight(20) + assets.Brand.PadRight(20) + assets.Office + Model.PadRight(20) + 
+            assets.Office.PadRight(20) + assets.PurchasePrice.PadRight(20) + assets.Currency.PadRight(20) + 
+            assets.ExchangeRate.PadRight(20) + assets.PurchaseDate);
     }
 
-    Console.ReadLine();
+  }
 
+Console.ReadLine();
+ }
 
