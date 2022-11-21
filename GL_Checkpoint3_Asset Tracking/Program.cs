@@ -202,13 +202,13 @@ while (true)
         //}
 
         //double ExchangeRate = new ExchangeRate();
-        //if (InputLocalCurrency == "EURO")
+        //if (InputCurrency == "EURO")
         //  {
         //    ExchangeRate = InputPrice * 1.12;
 
         //  }
         
-        //if (InputLocalCurrency == "SEK")
+        //if (InputCurrency == "SEK")
         //  {
         //    ExchangeRate = InputPrice * 0.12;
 
