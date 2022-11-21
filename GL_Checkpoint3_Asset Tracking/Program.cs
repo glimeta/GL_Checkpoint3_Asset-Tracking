@@ -249,18 +249,19 @@ while (true)
     //  }
 
 
-  List<Asset> SortedAssetsByType = Products.OrderBy(assets => assets.Type).ToList();           
-  Console.WriteLine("Type".PadRight(20) + "Brand".PadRight(20) + "Model".PadRight(20) + "Office".PadRight(20) + "Currency".PadRight(20) +
-                    "Price in USD".PadRight(20) + "Local Price ".PadRight(20) + "Purchase Date".PadRight(20));
-  Console.WriteLine(
+  List<Asset> SortedAssetsByType = Products.OrderBy(assets => assets.Type).ToList();
+    Console.WriteLine("Type".PadRight(20) + "Brand".PadRight(20) + "Model".PadRight(20) + "Office".PadRight(20) + "Currency".PadRight(20) +
+        "Price in USD".PadRight(20) + "Local Price".PadRight(20) + "Purchase Date".PadRight(20));
+
+    Console.WriteLine(
         "----".PadRight(20) +
         "-----".PadRight(20) +
-        "-----".PadRight(20) +
         "------".PadRight(20) +
-        "-------------".PadRight(20));
-        "------------".PadRight(20) +
+        "-------".PadRight(20) +
         "--------".PadRight(20) +
-        "-----------------");
+        "------------".PadRight(20) +
+        "-------------".PadRight(20) +
+        "-----------------".PadRight(20);
 
     foreach (Asset assets in SortedAssetsByType)
     {
