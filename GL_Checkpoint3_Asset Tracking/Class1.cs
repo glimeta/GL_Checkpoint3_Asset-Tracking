@@ -15,18 +15,18 @@ namespace GL_Checkpoint3_Asset_Tracking
         public string Model            { get; set; }
         public string Office           { get; set; }
         //public DateTime PurchaseDate   { get; set; }
-       // public int PurchasePrice       { get; set; }
+       public int PurchasePrice       { get; set; }
         public string Currency         { get; set; }
        // public double ExchangeRate     { get; set; }
         
 
-        public Asset(string type, string brand, string model, string office, string currency)
+        public Asset(string type, string brand, string model, string office, string currency, int purchasePrice)
         {
             Brand = brand;
             Model = model;
             //PurchaseDate = purchaseDate;
             Office = office;
-            //PurchasePrice = purchasePrice;
+            PurchasePrice = purchasePrice;
             Currency = currency;
             //ExchangeRate = exchangeRate;
             Type = type;
