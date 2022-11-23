@@ -15,7 +15,7 @@ while (true)
     while (true)
     {
         Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine("Enter a Type of Product");
+        Console.WriteLine("Enter a Type of Product. Computer or Phone");
         string InputType = Console.ReadLine();
         if (InputType.Trim().ToLower() == "q")
           {
