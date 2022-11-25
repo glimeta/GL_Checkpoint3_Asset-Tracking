@@ -120,28 +120,10 @@ while (true)
         //  }
         //}
 
-        string InputCurrency;
-        while (true)
-        {
-            Console.WriteLine("Enter Currency. (US Dollar / SEK / EURO");
-            InputCurrency = Console.ReadLine();
-            if (InputCurrency.Trim().ToLower() == "q")
-            {
-                break;
-            }
-
-            if (string.IsNullOrEmpty(InputCurrency))
-            {
-                Console.WriteLine("Incorrect Entry. Data missing");
-            }
-            else
-            {
-                break;
-            }
-        }
-
         string InputPrice;
         int value = 0;
+        string InputCurrency;
+        double v;
         while (true)
         {
             Console.WriteLine("Enter a Price in USD");
@@ -165,38 +147,65 @@ while (true)
             {
                 break;
             }
+
+
+           
+            while (true)
+            {
+                Console.WriteLine("Enter Currency. (US Dollar / SEK / EURO");
+                InputCurrency = Console.ReadLine();
+                  if (InputCurrency.Trim().ToLower() == "q")
+                   {
+                    break;
+                   }
+
+                  if (string.IsNullOrEmpty(InputCurrency))
+                  {
+                    Console.WriteLine("Incorrect Entry. Data missing");
+                  }
+                  else
+                  {
+                    break;
+                  }
+
+                  if (InputCurrency.Trim().ToLower() == "SEK")
+                  {
+
+                    v = value * 10;
+                                    
+                  }
+
+                  if (InputCurrency.Trim().ToLower() == "EURO")
+                  {
+                    v = value * 1.21;                   
+                  }
+
+                return v;
+
+            }
+            //bool Number2 = int.TryParse(InputPrice, out value2);
+            //if (!Number2)
+            //{
+            //    Console.WriteLine("Incorrect price! Input must be a number");
+            //}
+            //else
+            //{
+            //    break;
+            //}
+
         }
 
-        int Rate;
-        while (true)
-        {
-            if (InputCurrency.Trim().ToLower() == "SEK")
-            {
-                new Rate = (Rate)null;
-                int v = value * 10;
-                
-            }
 
-            if (InputCurrency.Trim().ToLower() == "EURO")
-            {
-                Rate purchasePrice = null;
-                new Rate = purchasePrice;
-                double v = value * 1.21;
-                
-            }
+    Console.WriteLine("Correct Entry!");
+    Asset assets = new Asset(InputType, InputBrand, model: InputModel, office: InputOffice,  purchasePrice: value, currency: InputCurrency, exchangeRate: v);
 
 
+    Products.Add(assets);
 
-            Console.WriteLine("Correct Entry!");
-            Asset assets = new Asset(InputType, InputBrand, model: InputModel, office: InputOffice, currency: InputCurrency, purchasePrice: value, exchangeRate: Rate);
-            Products.Add(assets);
+    Console.WriteLine("Type".PadRight(20) + "Brand".PadRight(20) + "Model".PadRight(20) + "Office".PadRight(20) + "Local Currency".PadRight(20) +
+    "Price in USD".PadRight(20) + "Local Price".PadRight(20) + "Purchase Date".PadRight(20));
 
-        }
-
-        Console.WriteLine("Type".PadRight(20) + "Brand".PadRight(20) + "Model".PadRight(20) + "Office".PadRight(20) + "Local Currency".PadRight(20) +
-            "Price in USD".PadRight(20) + "Local Price".PadRight(20) + "Purchase Date".PadRight(20));
-
-        Console.WriteLine(
+    Console.WriteLine(
             "----".PadRight(20) +
             "-----".PadRight(20) +
             "------".PadRight(20) +
@@ -230,16 +239,16 @@ while (true)
         //  }
 
 
-        List<Asset> SortedAssetsByType = Products.OrderBy(assets => assets.Type).ToList();
-        foreach (Asset assets in SortedAssetsByType)
+    List<Asset> SortedAssetsByType = Products.OrderBy(assets => assets.Type).ToList();
+    foreach (Asset assets in SortedAssetsByType)
         {
             Console.WriteLine(assets.Type.PadRight(20) + assets.Brand.PadRight(20) + assets.Model.PadRight(20) +
-                assets.Office.PadRight(20) + assets.Currency.PadRight(20) + assets.PurchasePrice + assets.ExchangeRate);
+                assets.Office.PadRight(20) + assets.PurchasePrice.PadRight(20) + assets.Currency.PadRight(20) + assets.ExchangeRate);
         }
 
-        Console.WriteLine("Press enter to continue or 'q' to exit");
-        string answer = Console.ReadLine();
-        if (answer.ToLower().Trim() == "q")
+    Console.WriteLine("Press enter to continue or 'q' to exit");
+    string answer = Console.ReadLine();
+    if (answer.ToLower().Trim() == "q")
         {
             break;
         }
